@@ -1,4 +1,4 @@
-package ar.com.ada.abmhuesped;
+package ar.com.ada.hoteltresvagos;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 import org.hibernate.exception.ConstraintViolationException;
 
-import ar.com.ada.abmhuesped.entities.*;
-import ar.com.ada.abmhuesped.excepciones.*;
-import ar.com.ada.abmhuesped.managers.*;
+import ar.com.ada.hoteltresvagos.entities.*;
+import ar.com.ada.hoteltresvagos.excepciones.*;
+import ar.com.ada.hoteltresvagos.managers.*;
 
 public class ABM {
 

@@ -1,4 +1,4 @@
-package ar.com.ada.abmhuesped;
+package ar.com.ada.hoteltresvagos;
 
 /**
  * Hello world!

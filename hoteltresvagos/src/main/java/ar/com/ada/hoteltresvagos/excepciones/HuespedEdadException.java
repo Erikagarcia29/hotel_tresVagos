@@ -1,6 +1,6 @@
-package ar.com.ada.abmhuesped.excepciones;
+package ar.com.ada.hoteltresvagos.excepciones;
 
-import ar.com.ada.abmhuesped.entities.*;
+import ar.com.ada.hoteltresvagos.entities.*;
 
 /**
  * HuespedEdadException

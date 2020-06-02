@@ -1,10 +1,10 @@
-package ar.com.ada.abmhuesped.entities;
+package ar.com.ada.hoteltresvagos.entities;
 
 import javax.persistence.*;
 
 import org.hibernate.annotations.NaturalId;
 
-import ar.com.ada.abmhuesped.excepciones.*;
+import ar.com.ada.hoteltresvagos.*;
 import ar.com.ada.hoteltresvagos.excepciones.HuespedDNIException;
 
 @Entity

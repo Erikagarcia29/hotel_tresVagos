@@ -1,4 +1,4 @@
-package ar.com.ada.abmhuesped.managers;
+package ar.com.ada.hoteltresvagos.managers;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -11,7 +11,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import ar.com.ada.abmhuesped.entities.*;
+import ar.com.ada.hoteltresvagos.entities.*;
 
 public class HuespedManager {
 
