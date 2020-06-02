@@ -1,13 +1,11 @@
 package ar.com.ada.abmhuesped.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.*;
 
 import org.hibernate.annotations.NaturalId;
 
 import ar.com.ada.abmhuesped.excepciones.*;
+import ar.com.ada.hoteltresvagos.excepciones.HuespedDNIException;
 
 @Entity
 @Table(name = "huesped")
