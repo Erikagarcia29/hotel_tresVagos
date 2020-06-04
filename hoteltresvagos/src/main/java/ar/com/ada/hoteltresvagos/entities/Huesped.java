@@ -1,5 +1,8 @@
 package ar.com.ada.hoteltresvagos.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 import org.hibernate.annotations.NaturalId;
@@ -20,6 +23,9 @@ public class Huesped {
     private String domicilio;
     @Column(name = "domicilio_alternativo")
     private String domicilioAlternativo;
+
+    @OneToMany(mappedBy ="huesped", cascade = CascadeType.ALL)
+    private List<Reserva> reserva = new ArrayList<>();
 
     public Huesped(String nombre) {
         this.nombre = nombre;
@@ -78,6 +84,14 @@ public class Huesped {
 
     public void setDomicilioAlternativo(String domicilioAlternativo) {
         this.domicilioAlternativo = domicilioAlternativo;
+    }
+
+    public List<Reserva> getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(List<Reserva> reserva) {
+        this.reserva = reserva;
     }
 
 }

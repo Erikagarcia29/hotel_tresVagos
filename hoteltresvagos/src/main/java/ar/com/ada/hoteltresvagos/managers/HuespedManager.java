@@ -20,10 +20,10 @@ public class HuespedManager {
     public void setup() {
 
         java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
-        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure() // configures settings
+        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();// configures settings
                                                                                                   // from
                                                                                                   // hibernate.cfg.xml
-                .build();
+                
         try {
             sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
         } catch (Exception ex) {
