@@ -18,7 +18,7 @@ public class Huesped {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int huespedId;
     private String nombre;
-    @NaturalId
+    @NaturalId 
     private int dni;
     private String domicilio;
     @Column(name = "domicilio_alternativo")
