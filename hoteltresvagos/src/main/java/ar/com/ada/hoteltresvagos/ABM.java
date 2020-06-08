@@ -374,15 +374,15 @@ public class ABM {
          * System.out.println("Huesped generada con exito.  " + huesped.getHuespedId);
          */
 
-        System.out.println("Huesped generada con exito.  " + huesped);
+        System.out.println("Reserva generada con exito.  " + reserva);
 
     }
 
     public void listaReservas() {
 
         List<Reserva> todas = ABMReserva.buscarTodas();
-        for (Reserva reserva : todas) {
-            mostrarReserva(reserva);
+        for (Reserva r : todas) {
+            mostrarReserva( r);
         }
     }
 
@@ -401,16 +401,39 @@ public class ABM {
 
     }
 
+    
     public void listaPorHuespedId() {
 
         System.out.println("Ingrese el huesped id:");
         int huespedId = Teclado.nextInt();
 
-        List<Reserva> reservas = ABMReserva.buscarPor(huespedId);
+        List<Reserva> reservas = ABMReserva.buscarPorId(huespedId);
         for (Reserva reserva : reservas) {
-            listaPorHuespedId();
+            mostrarReserva(reserva);
         }
 
     }
+
+
+
+
+    /*  public List<Reserva> buscarPorNombreHuesped(String nombre) {
+    
+            Session session = sessionFactory.openSession();
+     //Forma sql query nativa con parametros
+            Query queryForma1 = session.createNativeQuery(
+                "SELECT *  FROM reserva r inner join huesped h on h.huesped_id = r.huesped_id where nombre = ?", Reserva.class);
+                queryForma1.setParameter(1, nombre);
+
+            //Forma query utilizando JPQL (a traves del lenguaje de java). select sobre los objetos.
+            Query queryForma2 = session.createQuery("Select r from Reserva r where r.huesped.nombre = :nombre", Reserva.class);
+            queryForma2.setParameter("nombre", nombre);
+
+            List<Reserva> reservas = queryForma1.getResultList();
+    
+            return reservas;
+
+    
+        }*/
 
 }

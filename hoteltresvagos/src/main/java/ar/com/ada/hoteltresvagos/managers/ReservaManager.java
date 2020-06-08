@@ -105,21 +105,21 @@ public class ReservaManager {
     }
 
     /**
-     * Busca una lista de huespedes por el nombre completo Esta armado para que se
+     * Busca una lista de reservas por el huesped id Esta armado para que se
      * pueda generar un SQL Injection y mostrar commo NO debe programarse.
      * 
      * @param nombre
      * @return
      */
-    public List<Reserva> buscarPor(int huespedId) {
+    public List<Reserva> buscarPorId(int huespedId) {
 
         Session session = sessionFactory.openSession();
 
         // SQL Injection vulnerability exposed.
-        // Deberia traer solo aquella del nombre y con esto demostrarmos que trae todas
+        // Deberia traer solo aquella del id y con esto demostrarmos que trae todas
         // si pasamos
         // como nombre: "' or '1'='1"
-        Query query = session.createNativeQuery("SELECT * FROM reserva where huesped_id = '" + huespedId + "'", Reserva.class);
+        Query query = session.createNativeQuery("SELECT * FROM reserva where huesped_id = '" + huespedId + "" + Reserva.class);
 
         List<Reserva> reservas = query.getResultList();
 
