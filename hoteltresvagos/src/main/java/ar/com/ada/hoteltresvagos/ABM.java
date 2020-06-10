@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.persistence.FetchType;
+
 import org.hibernate.exception.ConstraintViolationException;
 
 import ar.com.ada.hoteltresvagos.entities.*;
@@ -68,7 +70,7 @@ public class ABM {
                         break;
 
                     case 8:
-                        listaPorHuespedId();
+                        listaReservaPorHuespedId();
                         break;
 
                     default:
@@ -389,25 +391,25 @@ public class ABM {
     
     public void mostrarReserva(Reserva reserva) {
 
-        System.out.println("huesped" + reserva.getHuesped().getNombre());
-        System.out.println("Id: " + reserva.getReservaId());
-        System.out.println(" fecha de reserva " + reserva.getFechaReserva());
-        System.out.println("Fecha ingreso " + reserva.getFechaIngreso());
-        System.out.println("fecha probable de salida" + reserva.getFechaEgreso());
-        System.out.println("importe de la reserva" + reserva.getImporteReserva());
-        System.out.println("importe total calculado por dias de reserva" + reserva.getImporteTotal());
-        System.out.println("saldo a pagar" + reserva.getSaldoPendienteDePago());
-        System.out.println("estado de pago de la reserva" + reserva.getTipoEstadoId());
+        System.out.println("huesped" + " " + reserva.getHuesped().getNombre());
+        System.out.println("Id: " + " "+ reserva.getReservaId());
+        System.out.println(" fecha de reserva " +  " " + reserva.getFechaReserva());
+        System.out.println("Fecha ingreso " + " " + reserva.getFechaIngreso());
+        System.out.println("fecha probable de salida" + " " + reserva.getFechaEgreso());
+        System.out.println("importe de la reserva" + " " + " " + reserva.getImporteReserva());
+        System.out.println("importe total calculado por dias de reserva" + " " + reserva.getImporteTotal());
+        System.out.println("saldo a pagar" + " " + reserva.getSaldoPendienteDePago());
+        System.out.println("estado de pago de la reserva" + " " + reserva.getTipoEstadoId());
 
     }
 
     
-    public void listaPorHuespedId() {
+    public void listaReservaPorHuespedId() {
 
         System.out.println("Ingrese el huesped id:");
         int huespedId = Teclado.nextInt();
 
-        List<Reserva> reservas = ABMReserva.buscarPorId(huespedId);
+        List<Reserva> reservas = ABMReserva.buscarPorId(huespedId); //fetch=fetchType.EAGER;
         for (Reserva reserva : reservas) {
             mostrarReserva(reserva);
         }

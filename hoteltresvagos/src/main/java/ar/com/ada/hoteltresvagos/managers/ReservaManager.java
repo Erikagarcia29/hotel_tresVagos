@@ -3,7 +3,10 @@ package ar.com.ada.hoteltresvagos.managers;
 import java.util.List;
 import java.util.logging.Level;
 
+import javax.persistence.FetchType;
 import javax.persistence.Query;
+
+import com.mysql.cj.x.protobuf.MysqlxCursor.Fetch;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -99,7 +102,8 @@ public class ReservaManager {
         Query query = session.createNativeQuery("SELECT * FROM reserva", Reserva.class);
         //query = session.createQuery("From Obse")
         List<Reserva> todas = query.getResultList();
-
+        
+ 
         return todas;
 
     }
@@ -119,7 +123,11 @@ public class ReservaManager {
         // Deberia traer solo aquella del id y con esto demostrarmos que trae todas
         // si pasamos
         // como nombre: "' or '1'='1"
-        Query query = session.createNativeQuery("SELECT * FROM reserva where huesped_id = '" + huespedId + "" + Reserva.class);
+        Query query = session.createNativeQuery("SELECT * FROM reserva where huesped_id = ?" , Reserva.class);
+        query.setParameter(1, huespedId);
+
+        //"SELECT * FROM reserva where huesped_id = '" + huespedId + "" + Reserva.class
+        //SELECT * FROM reserva where huesped_id = '7ar.com.ada.entities.Reserva
 
         List<Reserva> reservas = query.getResultList();
 
